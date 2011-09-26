@@ -1,5 +1,3 @@
-require "config_badger/version"
-
 module ConfigBadger
-  # Your code goes here...
+  autoload :VERSION, 'config_badger/version'
 end
