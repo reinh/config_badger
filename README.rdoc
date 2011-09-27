@@ -21,8 +21,8 @@ Set Config Badger's options at load time (for instance, in a Rails environment.r
     }
 
 YAML files in config/ can now be addressed by their name. They must contain
-your config values namespaced by environment, similar to database.yml. In fact,
-Config Badger can read your database.yml:
+your config values namespaced by environment, similar to Rails's database.yml.
+In fact, Config Badger can read your database.yml:
 
     # database.yml
     ---
@@ -33,6 +33,11 @@ Config Badger can read your database.yml:
 Can be read like so:
 
     ConfigBadger['database']['adapter'] #=> 'mysql'
+
+== Contributing
+
+Write some code and send a pull request to
+http://github.com/reinh/config_badger. Or not. Config Badger don't give a shit.
 
 == License
 
