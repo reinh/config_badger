@@ -31,11 +31,11 @@ Config Badger can read your database.yml:
 
 Can be read like so:
 
-    ConfigBadger['database']['adapter'] => 'mysql'
+    ConfigBadger['database']['adapter'] #=> 'mysql'
 
 == License
 
-MIT, see {LICENSE}[rdoc-ref:LICENSE]
+MIT, see LICENSE
 
 == Contributors
 
