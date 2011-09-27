@@ -8,9 +8,6 @@ module ConfigBadger
   autoload :OptionsReader, 'config_badger/options_reader'
   autoload :Store,         'config_badger/store'
 
-  # Stores
-  autoload :YAMLStore,  'config_badger/store/yaml_store'
-
   include Store
 
   class << self
