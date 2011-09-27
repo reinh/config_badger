@@ -7,7 +7,7 @@ module ConfigBadger
   autoload :OptionsReader, 'config_badger/options_reader'
 
   # Stores
-  autoload :YAMLStore,  'config_badger/stores/yaml_store'
+  autoload :YAMLStore,  'config_badger/store/yaml_store'
 
   include Errors
   extend Assertions
