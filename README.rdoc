@@ -16,7 +16,8 @@ Set Config Badger's options at load time (for instance, in a Rails environment.r
 
     ConfigBadger.options = {
       :store => ConfigBadger::YAMLStore,
-      :path  => Rails.root + 'config'
+      :path  => Rails.root + 'config',
+      :env   => Rails.env
     }
 
 YAML files in config/ can now be addressed by their name. They must contain

@@ -16,12 +16,7 @@ end
 
 task :default => :spec
 
-require 'rdoc/task'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
-
-  rdoc.rdoc_dir = 'doc'
-  rdoc.title = "config_badger #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+task :rdoc do
+  abort 'bin/rdoc not found. Please run `bundle --binstubs`' unless File.exists?('bin/rdoc')
+  sh 'bin/rdoc -q -U --main=README.rdoc -f hanna --markup tomdoc README.rdoc LICENSE lib'
 end

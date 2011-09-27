@@ -2,10 +2,7 @@ require 'yaml'
 
 module ConfigBadger
   module YAMLStore
-    include ConfigBadger::Errors
-    extend ConfigBadger::Assertions
-    extend ConfigBadger::Options
-    extend ConfigBadger::OptionsReader
+    include Store
 
     options_reader :path
 

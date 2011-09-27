@@ -7,3 +7,9 @@ guard 'rspec', :cli => '-c', :notify => false, :version => 2 do
   watch('spec/spec_helper.rb')  { "spec" }
 end
 
+# Add files and commands to this file, like the example:
+#   watch('file/path') { `command(s)` }
+#
+guard 'shell' do
+  watch(/(.*)\.(rb|rdoc)/) {|m| puts `rake rdoc` }
+end

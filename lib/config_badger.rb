@@ -13,9 +13,22 @@ module ConfigBadger
 
   include Store
 
-  class << self; attr_accessor :options; end
-  options_reader :store, :env
+  class << self
+    # Public: The ConfigBadger options.
+    attr_accessor :options
+  end
 
+  # Internal: The store used to access config data
+  options_reader :store
+
+  # Internal: The environment namespace to use. For instance, Rails environment.
+  options_reader :env
+
+  # Public: Return the config Hash by name.
+  #
+  # name - The String name of the config data.
+  #
+  # Returns the config Hash
   def self.[](name)
     cfg = store[name][env]
     raise EnvNotFound, "env not found `#{options[:env].inspect}`" unless cfg
