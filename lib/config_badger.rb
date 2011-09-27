@@ -1,40 +1,24 @@
-require 'yaml'
-
 module ConfigBadger
-  autoload :VERSION, 'options_badger/version'
+  autoload :VERSION,    'config_badger/version'
 
-  class ConfigError    < RuntimeError; end
-  class OptionsError   < ConfigError;  end
-  class ConfigNotFound < ConfigError;  end
-  class EnvNotFound    < RuntimeError; end
+  autoload :Assertions,    'config_badger/assertions'
+  autoload :Errors,        'config_badger/errors'
+  autoload :Options,       'config_badger/options'
+  autoload :OptionsReader, 'config_badger/options_reader'
 
-  def self.options
-    @options ||= {}
-  end
+  # Stores
+  autoload :YAMLStore,  'config_badger/stores/yaml_store'
 
-  def self.options=(options)
-    @options = options
-  end
+  include Errors
+  extend Assertions
+  extend OptionsReader
+
+  class << self; attr_accessor :options; end
+  options_reader :store, :env
 
   def self.[](name)
-    assert_options! :path, :env
-
-    file = name + '.yml'
-
-    config_file = File.join(options[:path], file)
-
-    raise ConfigNotFound, "config not found `#{name}` in #{config_file}" unless File.exists?(config_file)
-
-    config = YAML.load_file(config_file)[options[:env]]
-
-    raise EnvNotFound, "env not found `#{options[:env]}` in #{config_file}" unless config
-
-    return config
-  end
-
-  def self.assert_options!(*names)
-    names.each do |name|
-      raise OptionsError, "must specify options[#{name.inspect}]" unless options[name]
-    end
+    cfg = store[name][env]
+    raise EnvNotFound, "env not found `#{options[:env].inspect}`" unless cfg
+    return cfg
   end
 end
