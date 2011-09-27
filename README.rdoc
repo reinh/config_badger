@@ -1,0 +1,42 @@
+= config_badger
+
+Config Badger don't care.
+
+== Summary
+
+Config Badger makes it easy to set up a central config repository. It uses a
+pluggable storage system so you can start with YAML files and easily switch to
+a service (Redis, Zookeeper, etc) as your needs require.
+
+== Usage
+
+Examples will use the YAML storage.
+
+Set Config Badger's options at load time (for instance, in a Rails environment.rb):
+
+    ConfigBadger.options = {
+      :store => ConfigBadger::YAMLStore,
+      :path  => Rails.root + 'config'
+    }
+
+YAML files in config/ can now be addressed by their name. They must contain
+your config values namespaced by environment, similar to database.yml. In fact,
+Config Badger can read your database.yml:
+
+    # database.yml
+    ---
+    development:
+      adapter: mysql
+      user: root
+
+Can be read like so:
+
+    ConfigBadger['database']['adapter'] => 'mysql'
+
+== License
+
+MIT, see {LICENSE}[rdoc-ref:LICENSE]
+
+== Contributors
+
+Rein Henrichs:: mailto:reinh@reinh.com
