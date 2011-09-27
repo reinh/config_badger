@@ -1,17 +1,17 @@
 module ConfigBadger
   autoload :VERSION,    'config_badger/version'
 
+  # Modules
   autoload :Assertions,    'config_badger/assertions'
   autoload :Errors,        'config_badger/errors'
   autoload :Options,       'config_badger/options'
   autoload :OptionsReader, 'config_badger/options_reader'
+  autoload :Store,         'config_badger/store'
 
   # Stores
   autoload :YAMLStore,  'config_badger/store/yaml_store'
 
-  include Errors
-  extend Assertions
-  extend OptionsReader
+  include Store
 
   class << self; attr_accessor :options; end
   options_reader :store, :env
