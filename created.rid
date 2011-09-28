@@ -1,0 +1,11 @@
+Tue, 27 Sep 2011 17:05:55 -0700
+lib/config_badger/store.rb	Tue, 27 Sep 2011 17:03:23 -0700
+lib/config_badger/assertions.rb	Tue, 27 Sep 2011 17:03:23 -0700
+LICENSE	Tue, 27 Sep 2011 17:03:23 -0700
+lib/config_badger/options_reader.rb	Tue, 27 Sep 2011 17:03:23 -0700
+lib/config_badger/options.rb	Tue, 27 Sep 2011 17:03:23 -0700
+lib/config_badger/store/yaml_store.rb	Tue, 27 Sep 2011 17:03:23 -0700
+README.rdoc	Tue, 27 Sep 2011 17:03:23 -0700
+lib/config_badger/errors.rb	Tue, 27 Sep 2011 17:03:23 -0700
+lib/config_badger.rb	Tue, 27 Sep 2011 17:03:23 -0700
+lib/config_badger/version.rb	Tue, 27 Sep 2011 17:03:23 -0700

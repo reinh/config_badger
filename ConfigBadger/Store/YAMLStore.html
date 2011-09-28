@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>ConfigBadger::Store::YAMLStore</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <link href='../../../css/style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>module</span>
+          ConfigBadger::Store::YAMLStore
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a target="docwin" href="../../../files/lib/config_badger/store/yaml_store_rb.html">lib/config_badger/store/yaml_store.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong><a target="docwin" href="../Store.html">Store</a></strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='description'>
+            
+            <p>Local disk YAML storage.</p>
+            
+            <p>Required options:</p>
+            <dl class="rdoc-list note-list"><dt>:path
+            <dd>
+            <p>The location of the YAML config files.</p>
+            </dd><dt>:env
+            <dd>
+            <p>The name of the config environment namespace.</p>
+            </dd></dl>
+          </div>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>Public Class</h3>
+            <ol>
+              <li><a target="docwin" href="#method-c-5B-5D">[]</a></li>
+            </ol>
+          </div>
+          <div id='context'>
+            <div id='contents'>
+              <h2>Contents</h2>
+              <ol>
+                <li><a target="docwin" href="#5Buntitled-5D"></a></li>
+                <li><a target="docwin" href="#Internal">Internal</a></li>
+              </ol>
+            </div>
+            <div id='includes'>
+              <h2>Included modules</h2>
+              <ol>
+                <li><a target="docwin" href="../Store.html">Store</a></li>
+              </ol>
+            </div>
+          </div>
+          <div id='section'>
+          </div>
+          <div id='section'>
+            <h2>
+              <a name='Internal'>Internal</a>
+            </h2>
+            <div id='methods'>
+              <h2>Public Class methods</h2>
+              <div class='method public-class' id='method-method-c-5B-5D'>
+                <a name='method-c-5B-5D'></a>
+                <div class='synopsis'>
+                  <span class='name'>[]</span>
+                  <span class='arguments'>(name)</span>
+                </div>
+                <div class='description'>
+                  
+                  <p>The interface used by <a
+                  href="../../ConfigBadger.html">ConfigBadger</a>.[].</p>
+                  <dl class="rdoc-list note-list"><dt>name
+                  <dd>
+                  <p>the String config name.</p>
+                  </dd></dl>
+                  
+                  <p>Required options:</p>
+                  <dl class="rdoc-list note-list"><dt>:path
+                  <dd>
+                  <p>The location of the YAML config files.</p>
+                  </dd><dt>:env
+                  <dd>
+                  <p>The name of the config environment namespace.</p>
+                  </dd></dl>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('method-c-5B-5D-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='method-c-5B-5D-source'><span class="ruby-comment"># File lib/config_badger/store/yaml_store.rb, line 24</span>&#x000A;<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-operator">[]</span>(<span class="ruby-identifier">name</span>)&#x000A;  <span class="ruby-identifier">full_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">'.yml'</span>)&#x000A;  <span class="ruby-identifier">raise</span> <span class="ruby-constant">StoreNotFound</span>, <span class="ruby-node">&quot;store not found at `#{full_path}`&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">full_path</span>)&#x000A;  <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-identifier">full_path</span>)&#x000A;<span class="ruby-keyword">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a target="docwin" href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

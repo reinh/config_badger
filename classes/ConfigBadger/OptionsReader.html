@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>ConfigBadger::OptionsReader</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <link href='../../css/style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>module</span>
+          ConfigBadger::OptionsReader
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a target="docwin" href="../../files/lib/config_badger/options_reader_rb.html">lib/config_badger/options_reader.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong><a target="docwin" href="../ConfigBadger.html">ConfigBadger</a></strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='description'>
+            
+            <p>Provides <a
+            href="OptionsReader.html#method-i-options_reader">options_reader</a></p>
+          </div>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>Public Instance</h3>
+            <ol>
+              <li><a target="docwin" href="#method-i-options_reader">options_reader</a></li>
+            </ol>
+          </div>
+          <div id='context'>
+            <div id='contents'>
+              <h2>Contents</h2>
+              <ol>
+                <li><a target="docwin" href="#5Buntitled-5D"></a></li>
+                <li><a target="docwin" href="#Internal">Internal</a></li>
+              </ol>
+            </div>
+          </div>
+          <div id='section'>
+          </div>
+          <div id='section'>
+            <h2>
+              <a name='Internal'>Internal</a>
+            </h2>
+            <div id='methods'>
+              <h2>Public Instance methods</h2>
+              <div class='method public-instance' id='method-method-i-options_reader'>
+                <a name='method-i-options_reader'></a>
+                <div class='synopsis'>
+                  <span class='name'>options_reader</span>
+                  <span class='arguments'>(*names)</span>
+                </div>
+                <div class='description'>
+                  
+                  <p>Creates an accessor for the option in <a
+                  href="../ConfigBadger.html#attribute-c-options">ConfigBadger.options</a>.
+                  Also creates an assertion on that option name using <a
+                  href="Assertions.html#method-i-assert_options-21">ConfigBadger::Assertions#assert_options!</a></p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('method-i-options_reader-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='method-i-options_reader-source'><span class="ruby-comment"># File lib/config_badger/options_reader.rb, line 7</span>&#x000A;    <span class="ruby-keyword">def</span> <span class="ruby-identifier">options_reader</span>(*<span class="ruby-identifier">names</span>)&#x000A;      <span class="ruby-identifier">names</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>&#x000A;        <span class="ruby-identifier">instance_eval</span> <span class="ruby-string">&quot;        def self.#{name}                # def self.store&#x000A;          assert_options! :#{name}      #   assert_options! :store&#x000A;          options[:#{name}]             #   options[:store]&#x000A;        end                             # end&#x000A;&quot;</span>&#x000A;      <span class="ruby-keyword">end</span>&#x000A;    <span class="ruby-keyword">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a target="docwin" href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>
